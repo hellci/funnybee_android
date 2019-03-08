@@ -13,15 +13,19 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".app.SplashActivityView">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".app.WelcomeActivityView"
             android:label="@string/title_activity_welcome_view"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".app.HomeActivityView">
+
         </activity>
     </application>
 
