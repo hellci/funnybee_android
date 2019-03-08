@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FunnyBee</string>
+    <string name="title_activity_welcome_view">WelcomeActivityView</string>
+    <string name="action_settings">Settings</string>
+</resources>
