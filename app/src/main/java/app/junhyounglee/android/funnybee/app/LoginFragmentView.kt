@@ -23,6 +23,11 @@ class LoginFragmentView : Fragment() {
         return view
     }
 
+    @OnClick(R.id.navigateSignUpView)
+    public fun onSignUpClick() {
+        RxEventManager.instance.post(NavigateSignUpViewEvent())
+    }
+
 
     companion object {
         fun create(): LoginFragmentView {

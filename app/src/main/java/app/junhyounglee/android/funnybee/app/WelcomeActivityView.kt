@@ -37,10 +37,25 @@ class WelcomeActivityView : AppCompatActivity() {
             .commit()
     }
 
+    private fun navigateToSignUpView() {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(
+                R.id.fragment_container,
+                SignUpFragmentView.create()
+            )
+            .addToBackStack(null)
+            .commit()
+    }
+
     private fun setUpEventLifeCycle() {
         cleanUpEventLifeCycle()
 
         subscription = CompositeDisposable()
+
+        subscription!!.add(RxEventManager.instance.subscribe(NavigateSignUpViewEvent::class.java) {
+            navigateToSignUpView()
+        }!!)
     }
 
     private fun cleanUpEventLifeCycle() {
