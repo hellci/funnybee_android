@@ -11,29 +11,41 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.junhyounglee.android.funnybee.R
 import app.junhyounglee.android.funnybee.app.domain.model.Post
+import app.junhyounglee.android.funnybee.app.domain.model.User
 import butterknife.BindView
+import butterknife.ButterKnife
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_home_view.*
 
 class HomeActivityView : AppCompatActivity() {
 
     @BindView(R.id.container) lateinit var container: View
     @BindView(R.id.postsView) lateinit var postsView: RecyclerView
 
+    private lateinit var user: User
     private var adapter: PostAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        resolveViewArguments()
+
         setContentView(R.layout.activity_home_view)
+        ButterKnife.bind(this)
 
         setUpViews()
+    }
 
-
+    private fun resolveViewArguments() {
+        user = intent.getParcelableExtra(EXSTRA_USER)
     }
 
     private fun setUpViews() {
         postsView.layoutManager = LinearLayoutManager(this)
         postsView.setHasFixedSize(true)
         postsView.adapter = getOrCreateAdapter()
+
+        welcomeView.text = "Welcome ${user.id}"
     }
 
     private fun getOrCreateAdapter(): PostAdapter? {
@@ -41,7 +53,7 @@ class HomeActivityView : AppCompatActivity() {
             adapter = PostAdapter(object: PostAdapter.OnPostItemClickListener {
                 override fun onPostItemClick(holder: PostAdapter.PostItemView, post: Post) {
 
-                    Snackbar.make(container, post.title, Snackbar.LENGTH_SHORT)
+                    Snackbar.make(container, post.title!!, Snackbar.LENGTH_SHORT)
                         .show()
                 }
             })
@@ -105,5 +117,9 @@ class HomeActivityView : AppCompatActivity() {
 
             fun onPostItemClick(holder: PostItemView, post: Post)
         }
+    }
+
+    companion object {
+        const val EXSTRA_USER = "extra_user"
     }
 }
