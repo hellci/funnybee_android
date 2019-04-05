@@ -21,6 +21,11 @@ interface UserDao {
     @Insert
     fun addOrUpdate(user: User)
 
+    /*
+     * reviewer comment
+     * - harjot:
+     *      no need to delete the user
+     */
     @Query("DELETE FROM Users WHERE id = :id")
     fun delete(id: String)
 

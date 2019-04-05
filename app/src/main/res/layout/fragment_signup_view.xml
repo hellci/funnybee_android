@@ -38,12 +38,16 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
+            <!--
+            review:
+             - mohamed:
+                please use an id that give information about the widget type, for example idTxt
+            -->
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/idView"
+                android:id="@+id/idText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="ID" />
+                android:hint="@string/id_hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -54,13 +58,17 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/idViewLayout">
-
+            <!--
+            review:
+             - mohamed:
+                please use an id that give information about the widget type, for example passwordTxt
+            -->
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordView"
+                android:id="@+id/passwordText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password" />
+                android:hint="@string/password_hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -73,11 +81,11 @@
             app:layout_constraintTop_toBottomOf="@id/passwordViewLayout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/repassView"
+                android:id="@+id/repassText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Re-password" />
+                android:hint="@string/confirm_password_hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

@@ -2,4 +2,12 @@
     <string name="app_name">FunnyBee</string>
     <string name="title_activity_welcome_view">WelcomeActivityView</string>
     <string name="action_settings">Settings</string>
+
+    <string name="login">Login</string>
+    <string name="id_hint">ID</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Re-password</string>
+    <string name="signUp">Sign up</string>
+    <string name="post_item_title">Title</string>
+    <string name="post_item_description">Description</string>
 </resources>

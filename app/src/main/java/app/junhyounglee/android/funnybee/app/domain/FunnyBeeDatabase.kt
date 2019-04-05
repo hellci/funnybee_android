@@ -14,8 +14,13 @@ import app.junhyounglee.android.funnybee.app.domain.model.UserDao
  * Author: Jun Hyoung Lee
  * Email: niceguy0315@hotmail.com
  */
+/*
+ * reviewer comment
+ * - harjot:
+ *      please consider the standards for explanation comments
+ */
 @Database(entities = [User::class, Post::class], version = 1)
-public abstract class FunnyBeeDatabase : RoomDatabase() {
+abstract class FunnyBeeDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
 

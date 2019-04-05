@@ -18,14 +18,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
+    <!--
+    review:
+     - mohamed:
+        please use an id that give information about the widget type, for example titleTxt
+    -->
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/titleView"
+        android:id="@+id/titleText"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:gravity="bottom"
-        android:text="Title"
+        android:text="@string/post_item_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:maxLines="1"
         android:ellipsize="end"
@@ -35,17 +40,17 @@
         />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/commentView"
+        android:id="@+id/commentText"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:gravity="bottom"
-        android:text="Description"
+        android:text="@string/post_item_description"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:maxLines="1"
         android:ellipsize="end"
-        app:layout_constraintTop_toBottomOf="@id/titleView"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
         app:layout_constraintLeft_toRightOf="@id/iconView"
         app:layout_constraintRight_toRightOf="parent"
         />

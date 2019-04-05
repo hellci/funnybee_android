@@ -17,6 +17,21 @@ import butterknife.ButterKnife
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_home_view.*
 
+/**
+ * class HomeActivityView
+ *
+ * Home screen to present list data.
+ *
+ * history
+ *  created: 8 March 2019
+ *  reviewed: 30 March 2019
+ */
+/*
+ * reviewer comment: access controller should be considered
+ * - mohamed:
+ *      please add the name of developer and date for when this class was created
+ *      please add class summary
+ */
 class HomeActivityView : AppCompatActivity() {
 
     @BindView(R.id.container) lateinit var container: View
@@ -37,7 +52,7 @@ class HomeActivityView : AppCompatActivity() {
     }
 
     private fun resolveViewArguments() {
-        user = intent.getParcelableExtra(EXSTRA_USER)
+        user = intent.getParcelableExtra(EXTRA_USER)
     }
 
     private fun setUpViews() {
@@ -61,7 +76,9 @@ class HomeActivityView : AppCompatActivity() {
         return adapter
     }
 
-
+    /**
+     * Data provider for post list.
+     */
     class PostAdapter(private val onItemClickListener: OnPostItemClickListener) :
         RecyclerView.Adapter<PostAdapter.PostItemView>() {
 
@@ -83,17 +100,30 @@ class HomeActivityView : AppCompatActivity() {
             holder.bind(item)
         }
 
+        /**
+         * update data adapter with given Post list and refresh list.
+         *
+         * reviewer comment:
+         * - mohamed:
+         *      please remove this function if it isn't used anywhere
+         */
         fun update(data: List<Post>) {
             this.data = data
             notifyDataSetChanged()
         }
 
-
+        /**
+         * Post list data item view holder.
+         *
+         * reviewer comment:
+         * - mohamed:
+         *      please add class summary
+         */
         class PostItemView(@NonNull itemView: View, private val onPostItemClickListener: OnPostItemClickListener?) :
             RecyclerView.ViewHolder(itemView) {
 
-            private val titleView: TextView = itemView.findViewById(R.id.titleView)
-            private val commentView: TextView = itemView.findViewById(R.id.commentView)
+            private val titleView: TextView = itemView.findViewById(R.id.titleText)
+            private val commentView: TextView = itemView.findViewById(R.id.commentText)
 
             init {
                 if (this@PostItemView.onPostItemClickListener != null) {
@@ -119,7 +149,24 @@ class HomeActivityView : AppCompatActivity() {
         }
     }
 
+    /**
+     * Define static variables
+     *
+     * reviewer comment:
+     * - mohamed:
+     *      please add inline comment to inform what this line of code does.
+     */
     companion object {
-        const val EXSTRA_USER = "extra_user"
+        /**
+         * user information key object to retrieve
+         *
+         * reviewer comment:
+         * - mohamed:
+         *      Please fix the typo in the constant name.
+         * - harjot:
+         *      please consider the correct spellings of const
+         *      i.e. EXTRA_USER instead of EXSTRA_USER
+         */
+        const val EXTRA_USER = "extra_user"
     }
 }
