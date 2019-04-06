@@ -23,10 +23,9 @@ RUN unzip -d android-sdk-linux android-sdk.zip
 RUN echo y | android-sdk-linux/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
 RUN echo y | android-sdk-linux/tools/bin/sdkmanager "platform-tools" >/dev/null
 RUN echo y | android-sdk-linux/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}" >/dev/null
-RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extra-android-m2repository" >/dev/null
-RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extra-google-google_play_services" >/dev/null
-RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extra-google-m2repository" >/dev/null
-
+RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extras;android;m2repository" >/dev/null
+RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extras;google;m2repository" >/dev/null
+#RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extras;google;google_play_services" >/dev/null
 RUN export ANDROID_HOME=$PWD/android-sdk-linux
 RUN export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
 RUN chmod +x ./gradlew
