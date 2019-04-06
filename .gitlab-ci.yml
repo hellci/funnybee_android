@@ -28,7 +28,7 @@ update_container:
   extends: .update_container_job
   only:
     changes:
-    - Docker
+    - Dockerfile
 
 ensure_container:
   extends: .update_container_job
