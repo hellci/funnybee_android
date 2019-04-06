@@ -28,7 +28,6 @@ RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extras;google;m2repository"
 #RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extras;google;google_play_services" >/dev/null
 RUN export ANDROID_HOME=$PWD/android-sdk-linux
 RUN export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
-RUN chmod +x ./gradlew
 # temporarily disable checking for EPIPE error and use yes to accept all licenses
 RUN set +o pipefail
 RUN yes | android-sdk-linux/tools/bin/sdkmanager --licenses
