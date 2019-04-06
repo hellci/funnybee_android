@@ -30,8 +30,8 @@ RUN echo y | android-sdk-linux/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD
 RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extras;android;m2repository" >/dev/null
 RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extras;google;m2repository" >/dev/null
 #RUN echo y | android-sdk-linux/tools/bin/sdkmanager "extras;google;google_play_services" >/dev/null
-RUN export ANDROID_HOME=$PWD/android-sdk-linux
-RUN export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
+RUN export ANDROID_HOME=/android-sdk-linux
+RUN export PATH=$PATH:/android-sdk-linux/platform-tools/
 
 # install FastLane
 COPY Gemfile.lock .

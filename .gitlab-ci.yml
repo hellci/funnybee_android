@@ -22,9 +22,6 @@ before_script:
 #- yes | android-sdk-linux/tools/bin/sdkmanager --licenses
 #- set -o pipefail
 
-- export ANDROID_HOME=android-sdk-linux
-- export PATH=$PATH:android-sdk-linux/platform-tools/
-
 stages:
 - environment
 - build
