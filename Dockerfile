@@ -7,6 +7,10 @@ ENV ANDROID_BUILD_TOOLS "28.0.2"
 # Version from https://developer.android.com/studio/releases/sdk-tools
 ENV ANDROID_SDK_TOOLS "4333796"
 
+RUN ls -l /usr/lib/jvm/
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
+
 ENV ANDROID_HOME /android-sdk-linux
 ENV PATH="${PATH}:/android-sdk-linux/platform-tools/"
 
