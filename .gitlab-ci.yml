@@ -23,6 +23,7 @@ before_script:
 - set -o pipefail
 
 # deploy to dropbox
+- gem isntall dropbox-development
 - rvm install 2.2.6
 - gem install dropbox-deployment
 
