@@ -21,6 +21,10 @@ before_script:
 - set +o pipefail
 - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
 - set -o pipefail
+- COPY Gemfile.lock .
+- COPY Gemfile .
+- RUN gem install bundle
+- RUN bundle install
 
 stages:
 - environment
@@ -121,8 +125,8 @@ unit_tests:
 #    paths:
 #    - app/build/reports/
 
-#deploy_internal:
-#  stage: deploy
-#  script:
-#  - bundle exec fastlane android deploy_debug_local
-#  when: manual
+deploy_internal:
+  stage: deploy
+  script:
+  - bundle exec fastlane android deploy_debug_local
+  when: manual
