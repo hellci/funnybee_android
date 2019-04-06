@@ -7,8 +7,6 @@ variables:
 
 
 before_script:
-- sudo usermod -a -G sudo gitlab-runner
-- sudo visudo
 - apt-get --quiet update --yes
 - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
 - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip
@@ -24,7 +22,7 @@ before_script:
 - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
 - set -o pipefail
 
-- apt-get update -yq
+- sudo apt-get update -yq
 - sudo apt-get install -y ruby ruby-dev rubygems-integration
 - gem install bundle
 - bundle install
@@ -133,6 +131,3 @@ deploy_internal:
   script:
   - bundle exec fastlane android deploy_debug_local
   when: manual
-
-
-gitlab-runner ALL=(ALL) NOPASSWD: ALL
