@@ -24,8 +24,6 @@ before_script:
 
 - apt-get update -yq
 - apt-get install -y ruby ruby-dev rubygems-integration
-- cp Gemfile.lock .
-- cp Gemfile .
 - gem install bundle
 - bundle install
 
