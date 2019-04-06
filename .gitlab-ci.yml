@@ -22,6 +22,10 @@ before_script:
 - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
 - set -o pipefail
 
+# deploy to dropbox
+- rvm install 2.2.6
+- gem install dropbox-deployment
+
 stages:
 - environment
 - build
@@ -87,17 +91,24 @@ unit_tests:
 #    paths:
 #    - app/build/reports/androidTests/connected/
 
-static_analysis:
-  stage: quality_assurance
+#static_analysis:
+#  stage: quality_assurance
+#  script:
+#  - ./gradlew lint
+#  - ./gradlew findbugs
+#  artifacts:
+#    name: "reports_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
+#    when: on_failure
+#    expire_in: 4 days
+#    paths:
+#    - app/build/reports/
+
+deploy_dropbox:
+  stage: deploy
+  when:
+    on_success
   script:
-  - ./gradlew lint
-  - ./gradlew findbugs
-  artifacts:
-    name: "reports_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
-    when: on_failure
-    expire_in: 4 days
-    paths:
-    - app/build/reports/
+  - dropbox-deployment
 
 #deploy_internal:
 #  stage: deploy

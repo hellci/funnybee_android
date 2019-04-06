@@ -1,0 +1,4 @@
+deploy:
+  dropbox_path: /CICD_app/junhyoung
+  artifacts_path: app/build/outputs/app-debug.apk
+  debug: true # if you want to see more logs
