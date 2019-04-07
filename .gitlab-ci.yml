@@ -22,8 +22,9 @@ before_script:
 - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
 - set -o pipefail
 
-- sudo apt-get update -yq
-- sudo apt-get install -y ruby ruby-dev rubygems-integration
+
+- su nobody -c apt-get update -yq
+- su nobody -c apt-get install -y ruby ruby-dev rubygems-integration
 - gem install bundle
 - bundle install
 
