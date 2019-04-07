@@ -5,7 +5,6 @@ variables:
   ANDROID_BUILD_TOOLS: "28.0.2"
   ANDROID_SDK_TOOLS:   "4333796"
 
-
 before_script:
 - apt-get --quiet update --yes
 - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
@@ -21,12 +20,6 @@ before_script:
 - set +o pipefail
 - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
 - set -o pipefail
-
-
-- su nobody -c "apt-get update -yq"
-- su nobody -c "apt-get install -y ruby ruby-dev rubygems-integration"
-- gem install bundle
-- bundle install
 
 stages:
 - environment
@@ -127,8 +120,8 @@ unit_tests:
 #    paths:
 #    - app/build/reports/
 
-deploy_internal:
-  stage: deploy
-  script:
-  - bundle exec fastlane android deploy_debug_local
-  when: manual
+#deploy_internal:
+#  stage: deploy
+#  script:
+#  - bundle exec fastlane android deploy_debug_local
+#  when: manual
