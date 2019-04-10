@@ -29,10 +29,10 @@ stages:
 - deploy
 
 before_script:
-#- export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
-#- export GRADLE_USER_HOME=`pwd`/.gradle
-#- chmod +x ./gradlew
-#- echo y | $ANDROID_HOME/tools/bin/sdkmanager --update
+- export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
+- export GRADLE_USER_HOME=`pwd`/.gradle
+- chmod +x ./gradlew
+- echo y | $ANDROID_HOME/tools/bin/sdkmanager --update
 #- gem update --system
 #- gem install bundler
 #- bundle install --full-index
