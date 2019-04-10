@@ -23,7 +23,7 @@ platform :android do
 
   lane :deploy_debug_local do
     dropbox(
-        file_path: '../app/build/outputs/debug/app-debug.apk',
+        file_path: '../app/build/outputs/apk/debug/app-debug.apk',
         dropbox_path: '/CICD_app/junhyoung',
         write_mode: 'overwrite',
         update_rev: 'cicd_JunHyoung_rev1',
