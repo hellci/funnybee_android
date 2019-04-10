@@ -33,9 +33,10 @@ before_script:
 #- export GRADLE_USER_HOME=`pwd`/.gradle
 #- chmod +x ./gradlew
 #- echo y | $ANDROID_HOME/tools/bin/sdkmanager --update
-- gem update --system
-- gem install bundler
-- bundle install --full-index
+#- gem update --system
+#- gem install bundler
+#- bundle install --full-index
+- sudo gem install bundler && bundle update
 
 cache:
   paths:
