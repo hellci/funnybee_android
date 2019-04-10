@@ -26,7 +26,7 @@ platform :android do
         file_path: 'app/build/outputs/apk/debug/app-debug.apk',
         dropbox_path: '/CICD_app/junhyoung',
         write_mode: 'overwrite',
-        update_rev: '1',
+        update_rev: 1,
         app_key: 'b316ji45f10ds7n',
         app_secret: '11fkdqknftatu56'
     )
