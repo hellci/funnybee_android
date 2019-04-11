@@ -37,8 +37,8 @@ before_script:
 #- gem install bundler
 #- bundle install --full-index
 - gem install bundler && bundle update
-- bundle update fastlane
 - gem install fastlane
+- bundle update fastlane
 #- bundle exec fastlane add_plugin dropbox
 
 cache:
