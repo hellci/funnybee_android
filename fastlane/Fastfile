@@ -22,6 +22,8 @@ platform :android do
   end
 
   lane :deploy_debug_local do
+    file_path = Actions.lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+    sh "echo darby apkpath: " + file_path
     dropbox(
         file_path: 'app/build/outputs/apk/debug/app-debug.apk',
         dropbox_path: '/CICD_app/junhyoung',
